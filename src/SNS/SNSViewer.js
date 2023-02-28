@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
 import firebaseConfig from '../firebase.js';
-
+import { NickName,Account,ContentText } from "./SNSViweerZip.js"; 
 
 import './SNSViewer.css'
 function SNSViewer(){
@@ -37,8 +37,8 @@ function searchlog(){
                     <img src="https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/%EC%A7%B1.jpg"></img>
                   </div>
                   <div className="SNSViewerOneUserContent">
-                    <div><span className="SNSViewerOneUserContentName">{row.name}</span>  <span className="SNSViewerOneUserContentId">{row.id}@naver.com</span><span>time</span></div>
-                    <div className="SNSViewerOneUserContentText">contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</div>
+                    <div><NickName>{row.name}</NickName>  <Account>{row.id}@naver.com</Account><span>time</span></div>
+                    <ContentText>xcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</ContentText>
                     <div className="SNSViewerOneUserContentImg"><img src="https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/%EC%A7%B1.jpg"></img></div>
                   </div>
           </div>
