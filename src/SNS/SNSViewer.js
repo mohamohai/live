@@ -39,7 +39,7 @@ function goNav(gourl){
               return(
                 <SNSViewerOne key={key}> 
                   <FlexOnlyDiv>
-                    <UserPic url={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/%EC%A7%B1.jpg`}></UserPic>
+                    <UserPic url={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row.userpic}`}></UserPic>
                   </FlexOnlyDiv>
                   <SNSViewerOneUserContent>
                     <FlexOnlyDiv>
