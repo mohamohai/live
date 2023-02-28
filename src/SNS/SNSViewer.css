@@ -1,0 +1,44 @@
+.SNSViewer{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.SNSViewerOne{
+    width: 60vw;
+    min-width: 500px;
+    padding: 20px;
+    height: auto;
+    border: solid 1px rgb(0,0,0,0.2);
+    border-radius: 15px;
+    display: flex;
+    flex: row;
+    justify-content: center;
+}
+
+
+.SNSViewerOneUserImg img{
+    width: 50px;
+border-radius: 80%;
+
+}
+.SNSViewerOneUserContent{
+    display: flex;
+    padding: 0px 10px;
+    flex-direction: column;
+    width: 90%;
+    text-align: left;
+    
+}
+
+
+.SNSViewerOneUserContentText{
+    width: 100%;
+    word-break: break-all;
+}
+.SNSViewerOneUserContentImg img{
+    width: 100%;
+}

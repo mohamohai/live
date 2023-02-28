@@ -4,6 +4,7 @@ import MainView from './LiveCommerce/MainView';
 import ViewViewCommerce from './LiveCommerce/ViewCommerce.js'
 
 import SNSLogin from './SNS/SNSLogin';
+import SNSViewer from './SNS/SNSViewer';
 
 import { BrowserRouter, Router, Route, Switch, Link,Routes } from 'react-router-dom';
 function App() {
@@ -16,7 +17,11 @@ function App() {
           {/* <Route path='/firelive/:key1/:key2' element={<PageView />}></Route> */}
 					<Route path="/ViewCommerce/:id" element={<ViewViewCommerce/>}></Route>
           <Route path="/SNSLogin" element={<SNSLogin/>}></Route>
+          <Route path="/SNSViewer" element={<SNSViewer/>}></Route>
+          
 
+
+          
           
 				</Routes>
 			</BrowserRouter>

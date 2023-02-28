@@ -11,12 +11,16 @@ function MainView(){
         console.log(test)
     }
     return(<div className="MainView">
+        {testarr.filter((val)=>{
+            if(val === "test1"){
+            console.log(val)
+            }
+        })}
         {testarr.map((row,key)=>{
             return(
             <div className="testarrdata" key={key} onClick={()=>onClickData(row)}>
                 <div>
                         <p>{row}</p>
-                        {<img src={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row}.jpg`}></img>}
                 </div>
             </div>)
         })}
