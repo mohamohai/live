@@ -26,7 +26,19 @@ const ContentText = styledComponents.div`
     word-break: break-all;
     cursor: pointer;
 `;
-export { NickName, Account, ContentText };
+const UserPic = styledComponents.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 80%;
+  background: url(${props=>props.url}) center center / cover;
+`;
+const CircleText = styledComponents.div`
+width: 5rem;
+height: 5rem;
+background: ${props => props.color || 'black'};
+border-radius: 50%;
+`;
+export { NickName, Account, ContentText, CircleText,UserPic };
 
 
 

@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
 import firebaseConfig from '../firebase.js';
-import { NickName,Account,ContentText } from "./SNSViweerZip.js"; 
+import { NickName,Account,ContentText,CircleText, UserPic } from "./SNSViweerZip.js"; 
 
 import './SNSViewer.css'
 function SNSViewer(){
@@ -32,9 +32,9 @@ function searchlog(){
     return(<div className="SNSViewer">
             {SearchAccountHit? <div>{SearchAccount.map((row,key)=>{
               return(
-                <div className="SNSViewerOne">
+                <div key={key} className="SNSViewerOne">
                   <div className="SNSViewerOneUserImg">
-                    <img src="https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/%EC%A7%B1.jpg"></img>
+                    <UserPic url={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/%EC%A7%B1.jpg`}></UserPic>
                   </div>
                   <div className="SNSViewerOneUserContent">
                     <div><NickName>{row.name}</NickName>  <Account>{row.id}@naver.com</Account><span>time</span></div>
