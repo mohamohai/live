@@ -1,30 +1,35 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom";
+
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs  } from "firebase/firestore";
 import firebaseConfig from '../firebase.js';
 import {SNSViewerOne,FlexOnlyDiv,SNSViewerOneUserContent, NickName,Account,ContentText,CircleText, UserPic } from "./SNSViweerZip.js"; 
-
 import './SNSViewer.css'
+
 function SNSViewer(){
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const [SearchAccount,setSearchAccount] = useState([])
-const [SearchAccountHit,setSearchAccountHit] = useState(false)
+const [SearchAccount,setSearchAccount] = useState([]);
+const [SearchAccountHit,setSearchAccountHit] = useState(false);
+const navigate = useNavigate();
+
+const [startData2, setStartData2] = useState([])
 
 async function startData(){
-  const querySnapshot = await getDocs(collection(db, "vraccount"));
+  const querySnapshot = await getDocs(collection(db, "vrboard"));
+  setStartData2(querySnapshot._snapshot.docChanges);
   querySnapshot.forEach((doc) => {
-  SearchAccount.push(doc.data())
-  setSearchAccountHit(true)
+    SearchAccount.push(doc.data())
   });
-  console.log(SearchAccount)
+  setSearchAccountHit(true)
+                {/* 푸쉬로 넣어둔거라 나중에 셋으로 바꿀 때 써야할수도있음 {startData2[0].doc.data.value.mapValue.fields.content.stringValue} */}
 }
 
 
-function searchlog(){
-  console.log(SearchAccount)
+function goNav(gourl){
+  navigate(`/${gourl}`)
 }
     useEffect(()=>{
       startData()
@@ -32,22 +37,21 @@ function searchlog(){
     return(<div className="SNSViewer">
             {SearchAccountHit? <div>{SearchAccount.map((row,key)=>{
               return(
-                <SNSViewerOne key={key}>
+                <SNSViewerOne key={key}> 
                   <FlexOnlyDiv>
                     <UserPic url={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/%EC%A7%B1.jpg`}></UserPic>
                   </FlexOnlyDiv>
                   <SNSViewerOneUserContent>
                     <FlexOnlyDiv>
-                      <NickName>{row.name}</NickName>
-                      <Account>{row.id}@naver.com</Account> 
+                      <NickName>{row.name} </NickName>
+                      <Account>{row.id}</Account> 
                     </FlexOnlyDiv>
-                    <ContentText>xcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</ContentText>
-                    <div className="SNSViewerOneUserContentImg"><img src="https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/%EB%B0%B0.jpg"></img></div>
+                    <ContentText onClick={()=>goNav(`SNSViewer`)}>{row.content}</ContentText>
+                    <div className="SNSViewerOneUserContentImg"><img src={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row.img}`}></img></div>
                   </SNSViewerOneUserContent>
                 </SNSViewerOne>
-
             )
-          })}</div> :<p>여기 스켈레톤 ui 넣을 예정</p>} 
+          })}</div> :''} 
 
         {/* <div className="SNSViewerOne">
           <div className="SNSViewerOneUserImg">

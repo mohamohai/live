@@ -1,7 +1,7 @@
 import styledComponents from 'styled-components';
 
 const SNSViewerOne = styledComponents.div`
-width: 60vw;
+    width: 40vw;
     min-width: 500px;
     padding: 20px 70px 20px 20px;
     height: auto;
@@ -24,7 +24,6 @@ const NickName = styledComponents.span`
   &:hover{
     transition: all 0.3s;
     text-decoration: underline;
-    
   }
 `;
 
