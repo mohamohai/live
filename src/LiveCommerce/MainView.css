@@ -1,0 +1,4 @@
+.MainView{
+    display: flex;
+    flex-direction: row;
+}
