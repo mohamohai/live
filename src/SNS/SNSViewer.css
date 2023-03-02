@@ -71,12 +71,3 @@
 }
 
 
-
-.ovov{
-    display: flex;
-    width: 80vw;
-    flex-direction: row;
-    justify-content: space-evenly;
-
-    text-decoration: none;;
-}

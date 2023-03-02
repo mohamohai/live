@@ -1,63 +1,51 @@
 import { useEffect } from "react";
-import styledComponents from 'styled-components';
+import styledComponents from "styled-components";
 
+import {
+  SNSViwer,
+  SNSViewerOne,
+  FlexOnlyDiv,
+  SNSViewerOneUserContent,
+  NickName,
+  Account,
+  ContentText,
+  UserPic,
+} from "../SNSViewerZip.js";
+function SNSFriend() {
+  const testarrfriendpic = ["ab.jpg", "bc.jpg", "cd.jpg"];
+  const testarrfriendname = ["홍길동", "전우치", "간달프"];
+  const testarrfriendid = ["hong1234", "yap1212", "fire1515"];
+  const testarrfriendcomment = [
+    "이거 테스트 한 번 해보고 다시 부트스트랩",
+    "얍얍",
+    "마법안써요",
+  ];
 
-
-import {SNSViwer, SNSViewerOne,FlexOnlyDiv, SNSViewerOneUserContent, NickName, Account, ContentText, UserPic,  } from "../SNSViewerZip.js"; 
-function SNSFriend(){
-
-  const testarrfriendpic=["ab.jpg","bc.jpg","cd.jpg"];
-  const testarrfriendname=["홍길동","전우치","간달프"];
-  const testarrfriendid=["hong1234","yap1212","fire1515"];
-  const testarrfriendcomment=["이거 테스트 한 번 해보고 다시 부트스트랩","얍얍","마법안써요"];
-
-
-
-    return(
-      <div>
-        <SNSFriendViewer>
-             <SNSViewerOne2 > 
+  return (
+    <div>
+      <SNSFriendViewer>
+        {testarrfriendpic.map((row, key) => {
+          return (
+            <SNSViewerOne2 key={key}>
               <FlexOnlyDiv>
-                <UserPic url={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/ab.jpg`}></UserPic>
+                <UserPic
+                  url={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${testarrfriendpic[key]}`}
+                ></UserPic>
               </FlexOnlyDiv>
               <SNSViewerOneUserContent2>
                 <FlexOnlyDiv>
-                  <NickName>김간디</NickName>
-                  <Account>dlwhdgus98@naver.com</Account> 
+                  <NickName>{testarrfriendname[key]}</NickName>
+                  <Account>{testarrfriendid[key]}</Account>
                 </FlexOnlyDiv>
-                <ContentText2 >이게 상태말이aa가능aaaaaaaaaaaaaaaaaaaaaaaaaaa성</ContentText2>
+                <ContentText2>{testarrfriendcomment[key]}</ContentText2>
               </SNSViewerOneUserContent2>
             </SNSViewerOne2>
-        </SNSFriendViewer>
-        {testarrfriendpic.map((row,key)=>{
-          console.log(key)
-          return( 
-            <SNSViewerOne2 > 
-             <FlexOnlyDiv>
-               <UserPic url={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${testarrfriendpic[key]}`}></UserPic>
-             </FlexOnlyDiv>
-             <SNSViewerOneUserContent2>
-               <FlexOnlyDiv>
-                 <NickName>{testarrfriendname[key]}</NickName>
-                 <Account>{testarrfriendid[key]}</Account> 
-               </FlexOnlyDiv>
-               <ContentText2 >{testarrfriendcomment[key]}</ContentText2>
-             </SNSViewerOneUserContent2>
-           </SNSViewerOne2>
-       )
+          );
         })}
-        
-      </div>
-    )
+      </SNSFriendViewer>
+    </div>
+  );
 }
-
-
-
-
-
-
-
-
 
 const SNSFriendViewer = styledComponents.div`
     height:100vh;
@@ -73,7 +61,6 @@ const SNSFriendViewer = styledComponents.div`
         display:none;
     }
 `;
-
 
 const SNSViewerOne2 = styledComponents.div`
     min-width: 100%;

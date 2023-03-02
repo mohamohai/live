@@ -71,7 +71,17 @@ const SNSViewerOneUserContent = styledComponents.div`
   width: 90%;
   text-align: left;
 `;
-export {SNSViwer, SNSViewerOne, FlexOnlyDiv,SNSViewerOneUserContent, NickName, Account, ContentText, CircleText,UserPic };
+
+
+
+const SNSFlexRowTable = styledComponents.div`
+  display: flex;
+  width: 80vw;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-decoration: none;
+`
+export {SNSViwer,SNSFlexRowTable, SNSViewerOne, FlexOnlyDiv,SNSViewerOneUserContent, NickName, Account, ContentText, CircleText,UserPic };
 
 
 
