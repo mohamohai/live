@@ -1,7 +1,7 @@
 import { useEffectm, useState, useRef } from "react";
 import styledComponents from "styled-components";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useNavigate } from "react-router-dom";
+
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
 import firebaseConfig from "../../firebase.js";
@@ -21,8 +21,7 @@ function SNSGNBComponent(props) {
   const GNBUrl = props.GNBUrl;
   const IconName = props.IconName;
   const GNBText = props.GNBText;
-  const inputRef = useRef(null);
-  const testRef = useRef(null);
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
@@ -35,7 +34,10 @@ function SNSGNBComponent(props) {
   const [hasharr, sethasharr] = useState([]);
 
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    sethasharr([]);
+  };
   const handleShow = () => setShow(true);
 
   async function submitDoc() {
@@ -52,10 +54,9 @@ function SNSGNBComponent(props) {
 
   function CheckEnter(e) {
     if (e.key === "Enter") {
-      console.log(hashTagText);
       hasharr.push(hashTagText);
       sethashTagText("");
-      console.log(hasharr);
+      document.getElementsByClassName("hashbox").value='';
     }
   }
 
@@ -108,6 +109,7 @@ function SNSGNBComponent(props) {
               <Form.Control
                 as="textarea"
                 rows={10}
+                autoFocus
                 onChange={(e) => setWriteContent(e.target.value)}
               />
             </Form.Group>
@@ -116,21 +118,24 @@ function SNSGNBComponent(props) {
               <Form.Control
                 type="email"
                 placeholder="일단 공간이 남아서 넣어봤는데 해쉬태그 같은걸로 하면 좋을 거 같아요"
-                autoFocus
+                value={hashTagText}
                 onChange={(e) => sethashTagText(e.target.value)}
                 onKeyPress={(e) => CheckEnter(e)}
+                className="hashbox"
               />
               {hasharr.map((row, ket) => {
                 return (
-                  <div style={{ float: "left" }}>
+                  <Hashbox>
                     {row}
-                    <span onClick={() => hasharrDel(row)}>x</span>
-                  </div>
+                    <span onClick={() => hasharrDel(row)}> x </span>
+                    </Hashbox>
                 );
               })}
             </Form.Group>
             <InputGroup size="sm" className="mb-3">
-              <InputGroup.Text id="inputGroup-sizing-sm">&nbsp;&nbsp; Small &nbsp;&nbsp;</InputGroup.Text>
+              <InputGroup.Text id="inputGroup-sizing-sm">
+                &nbsp;&nbsp; Small &nbsp;&nbsp;
+              </InputGroup.Text>
               <Form.Control
                 aria-label="Small"
                 aria-describedby="inputGroup-sizing-sm"
@@ -176,4 +181,12 @@ const GNBRowSpan = styledComponents.span`
     font-size: 1rem;
     padding-left: 10px;
 `;
+
+const Hashbox = styledComponents.div`
+  float:left;
+  padding: 10px;
+  border-radius: 10px;
+  background-color:rgb(247,90,105,0.8);
+  margin:5px 5px 5px 0;
+`
 export default SNSGNBComponent;
