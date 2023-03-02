@@ -16,7 +16,7 @@ function SNSWriteModal(){
 
     return(
         <div>
-            
+            ? 이 파일 
         </div>
     )
 
