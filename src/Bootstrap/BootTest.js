@@ -5,11 +5,56 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 function BootTest(){
     const variant=""
-    return(<div>
-          <Button as="a" variant="success">
-    Button Test 
-  </Button>
+    return(
+        <div>
+            
+    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* 
   <CardGroup>
       <Card>
         <Card.Img variant="top" src="holder.js/100px160" />
@@ -47,6 +92,6 @@ function BootTest(){
         </Card.Body>
       
       </Card>
-    </CardGroup>
+    </CardGroup> */}
     </div>)
 }export default BootTest

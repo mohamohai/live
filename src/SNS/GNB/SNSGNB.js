@@ -31,20 +31,20 @@ function SNSGNB(){
     )
 }
 const SNSGNBMenu = styledComponents.div`
-    width: 15%;
+    width:15vw;
     height:100vh;
+    min-width:250px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top:30px;
-    border-right: solid 0.5px rgb(0,0,0,0.3);
-    position: fixed;
-    left:0px;
+    position: sticky;   
     top: 0px;
-    @media screen and (max-width: 210px) {
-    background-color:black;
-
+    border-right:1px solid rgb(0,0,0);
+    @media screen and (max-width: 1000px) {
+        display:none;
     }
+    
 `;
 
 export default SNSGNB;

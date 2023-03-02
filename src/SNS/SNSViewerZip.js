@@ -1,12 +1,10 @@
 import styledComponents from 'styled-components';
 
 const SNSViwer = styledComponents.div`
-width: 100vw;
-    height: auto;
+    width: 100vw;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
 `;
 
 const SNSViewerOne = styledComponents.div`

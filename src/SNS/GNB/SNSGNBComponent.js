@@ -32,20 +32,34 @@ function SNSGNBComponent(props){
 
     return(
         <GNBRow>
-            <Link to={`./${GNBUrl}`}>
-            {IconName==="AiOutlineHome"? <AiOutlineHome className="GNBIcon" size='1.5rem'  fill="black"/>: 
-                IconName==="AiOutlineSearch" ? <AiOutlineSearch className="GNBIcon" size='1.5rem'  fill="black"/> : 
-                    IconName==="AiOutlinePlus" ? <AiOutlinePlus onClick={handleShow} className="GNBIcon" size='1.5rem'  fill="black"/> :
-                        IconName==="AiOutlineBell" ? <AiOutlineSearch className="GNBIcon" size='1.5rem'  fill="black"/> : "컴포넌트 함수로 호출 찾아보고"}
+            {IconName==="AiOutlineHome"? <Link to={`./${GNBUrl}`}><AiOutlineHome className="GNBIcon" size='1.5rem'  fill="black"/> </Link>: 
+                IconName==="AiOutlineSearch" ?  <Link to={`./${GNBUrl}`}><AiOutlineSearch className="GNBIcon" size='1.5rem'  fill="black"/> </Link> : 
+                    IconName==="AiOutlinePlus" ? <AiOutlinePlus onClick={handleShow} className="GNBIcon" size='1.5rem'  fill="black"/>  :
+                        IconName==="AiOutlineBell" ? <Link to={`./${GNBUrl}`}> <AiOutlineSearch className="GNBIcon" size='1.5rem'  fill="black"/></Link> : "컴포넌트 함수로 호출 찾아보고"} 
+            
+            
+            
              <GNBRowSpan>{GNBText}</GNBRowSpan>
-             </Link>
-             <AiOutlinePlus onClick={handleShow} className="GNBIcon" size='1.5rem'  fill="black"/>
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
 
 
              <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
+              <Modal.Header closeButton>
+                <Modal.Title>Modal heading</Modal.Title>
+              </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -62,7 +76,12 @@ function SNSGNBComponent(props){
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>Example textarea</Form.Label>
-              <Form.Control as="textarea" rows={3} />
+              <Form.Control as="textarea" rows={10} />
+            </Form.Group>
+
+            <Form.Group controlId="formFileSm" className="mb-3">
+                <Form.Label>이미지 파일 업로드 (1개)</Form.Label>
+                <Form.Control type="file" size="sm" />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -76,6 +95,9 @@ function SNSGNBComponent(props){
         </Modal.Footer>
       </Modal>
 
+
+
+
         </GNBRow>
     )
 }
@@ -88,6 +110,8 @@ const GNBRow = styledComponents.div`
     display: flex;
     align-items: center;
     font-weight: 300;
+    text-decoration: none;
+
 `
 
 const GNBRowSpan = styledComponents.span`

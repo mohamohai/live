@@ -1,11 +1,7 @@
 .SNSViewer{
     width: 100vw;
     height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+    
 }
 
 .SNSViewerOne{
@@ -70,4 +66,17 @@
 .GNBIcon:hover {
     fill: rgb(247, 90, 105);
     transition: all 0.5s;
+    position: sticky;   
+    top: 10px;
+}
+
+
+
+.ovov{
+    display: flex;
+    width: 80vw;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    text-decoration: none;;
 }

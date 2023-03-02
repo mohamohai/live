@@ -8,6 +8,7 @@ import firebaseConfig from '../firebase.js';
 import {SNSViwer, SNSViewerOne,FlexOnlyDiv, SNSViewerOneUserContent, NickName, Account, ContentText, UserPic,  } from "./SNSViewerZip.js"; 
 import './SNSViewer.css'
 import SNSGNB from "./GNB/SNSGNB.js"
+import SNSFriend from "./GNB/SNSFriend.js";
 
 function SNSViewer(){
 const app = initializeApp(firebaseConfig);
@@ -39,27 +40,29 @@ function viwePrint(){
   return(
   <SNSViwer>
     <SNSGNB></SNSGNB>
-    <div>
-      {SearchAccount.map((row,key)=>{
-      return(
-          <SNSViewerOne key={key}> 
-            <FlexOnlyDiv>
-              <UserPic url={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row.userpic}`}>
-              </UserPic>
-            </FlexOnlyDiv>
-            <SNSViewerOneUserContent>
+    <div className="ovov">
+    <FlexOnlyDiv>
+        {SearchAccount.map((row,key)=>{
+        return(
+            <SNSViewerOne key={key}> 
               <FlexOnlyDiv>
-                <NickName>{row.name}</NickName>
-                <Account>{row.id}</Account> 
+                <UserPic url={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row.userpic}`}></UserPic>
               </FlexOnlyDiv>
-              <ContentText onClick={()=>goNav(`SNSViewer`)}>{row.content}</ContentText>
-              <div className="SNSViewerOneUserContentImg"><img src={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row.img}`}></img></div>
-            </SNSViewerOneUserContent>
-          </SNSViewerOne>
-      )
-      })}
-    </div >
-    <SNSGNB></SNSGNB>
+              <SNSViewerOneUserContent>
+                <FlexOnlyDiv>
+                  <NickName>{row.name}</NickName>
+                  <Account>{row.id}</Account> 
+                </FlexOnlyDiv>
+                <ContentText onClick={()=>goNav(`SNSViewer`)}>{row.content}</ContentText>
+                <div className="SNSViewerOneUserContentImg"><img src={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row.img}`}></img></div>
+              </SNSViewerOneUserContent>
+            </SNSViewerOne>
+        )
+        })}
+      </FlexOnlyDiv>
+      <SNSFriend></SNSFriend>
+    </div>
+
   </SNSViwer>
   )
 }
