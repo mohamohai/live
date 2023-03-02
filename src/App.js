@@ -6,6 +6,11 @@ import ViewViewCommerce from './LiveCommerce/ViewCommerce.js'
 import SNSLogin from './SNS/SNSLogin';
 import SNSViewer from './SNS/SNSViewer';
 
+
+import BootTest from './Bootstrap/BootTest';
+
+
+
 import { BrowserRouter, Router, Route, Switch, Link,Routes } from 'react-router-dom';
 function App() {
   return (
@@ -23,9 +28,8 @@ function App() {
 
 					<Route path="/ViewCommerce/:id" element={<ViewViewCommerce/>}></Route>
 
-
           
-          
+          <Route path="/BootTest" element={<BootTest/>}></Route>
 				</Routes>
 			</BrowserRouter>
     </div>

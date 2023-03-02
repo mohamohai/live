@@ -3,7 +3,7 @@ import styledComponents from 'styled-components';
 import { FaBeer } from 'react-icons/fa';
 import {HiUser, HiUserAdd, } from 'react-icons/hi'
 import {AiOutlinePlus,AiOutlineSearch, AiOutlineBell, AiOutlineHome} from 'react-icons/ai';
-import SNSGNBComponent from './SNSGNBComponent';
+import SNSGNBComponent from './SNSGNBComponent.js';
 function SNSGNB(){
     return(
 
@@ -12,8 +12,6 @@ function SNSGNB(){
 
             <SNSGNBComponent IconName={`AiOutlineHome`}   GNBUrl={`/`} GNBText={"홈"}></SNSGNBComponent>
             <SNSGNBComponent IconName={`AiOutlineSearch`} GNBUrl={`search`} GNBText={"검색"}></SNSGNBComponent>
-
-
 
             {/* 주로 글을 보는 영역은 페이지를 이동하지만 그 외의 부수적인 작업에 해당되는 것은 
             url보다 modal창으로 많이 함 */}
@@ -33,17 +31,20 @@ function SNSGNB(){
     )
 }
 const SNSGNBMenu = styledComponents.div`
-    width: 20%;
+    width: 15%;
     height:100vh;
-  
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: fixed;
-    top:0px;
-    left:0px;
     padding-top:30px;
-    border-right: solid 0.5px rgb(0,0,0,0.3)
+    border-right: solid 0.5px rgb(0,0,0,0.3);
+    position: fixed;
+    left:0px;
+    top: 0px;
+    @media screen and (max-width: 210px) {
+    background-color:black;
+
+    }
 `;
 
 export default SNSGNB;

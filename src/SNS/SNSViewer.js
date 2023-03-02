@@ -7,7 +7,7 @@ import firebaseConfig from '../firebase.js';
 
 import {SNSViwer, SNSViewerOne,FlexOnlyDiv, SNSViewerOneUserContent, NickName, Account, ContentText, UserPic,  } from "./SNSViewerZip.js"; 
 import './SNSViewer.css'
-import SNSGNB from "./SNSGNB.js"
+import SNSGNB from "./GNB/SNSGNB.js"
 
 function SNSViewer(){
 const app = initializeApp(firebaseConfig);
@@ -40,25 +40,27 @@ function viwePrint(){
   <SNSViwer>
     <SNSGNB></SNSGNB>
     <div>
-    {SearchAccount.map((row,key)=>{
-    return(
-      <SNSViewerOne key={key}> 
-        <FlexOnlyDiv>
-          <UserPic url={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row.userpic}`}>
-          </UserPic>
-        </FlexOnlyDiv>
-        <SNSViewerOneUserContent>
-          <FlexOnlyDiv>
-            <NickName>{row.name}</NickName>
-            <Account>{row.id}</Account> 
-          </FlexOnlyDiv>
-          <ContentText onClick={()=>goNav(`SNSViewer`)}>{row.content}</ContentText>
-          <div className="SNSViewerOneUserContentImg"><img src={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row.img}`}></img></div>
-        </SNSViewerOneUserContent>
-      </SNSViewerOne>
-    )
-})}
-</div></SNSViwer>
+      {SearchAccount.map((row,key)=>{
+      return(
+          <SNSViewerOne key={key}> 
+            <FlexOnlyDiv>
+              <UserPic url={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row.userpic}`}>
+              </UserPic>
+            </FlexOnlyDiv>
+            <SNSViewerOneUserContent>
+              <FlexOnlyDiv>
+                <NickName>{row.name}</NickName>
+                <Account>{row.id}</Account> 
+              </FlexOnlyDiv>
+              <ContentText onClick={()=>goNav(`SNSViewer`)}>{row.content}</ContentText>
+              <div className="SNSViewerOneUserContentImg"><img src={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row.img}`}></img></div>
+            </SNSViewerOneUserContent>
+          </SNSViewerOne>
+      )
+      })}
+    </div >
+    <SNSGNB></SNSGNB>
+  </SNSViwer>
   )
 }
     useEffect(()=>{
