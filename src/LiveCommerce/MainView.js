@@ -20,7 +20,7 @@ function MainView(){
         {testarr.map((row,key)=>{
             return(
             <div className="testarrdata" key={key} onClick={()=>onClickData(row)}>
-                
+                    <a href="mailto:odod@test.com">여기메일</a>
                 <div><Title>asd</Title>
                     
                         <ContentText>{row}</ContentText>

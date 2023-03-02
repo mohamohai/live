@@ -5,9 +5,8 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs  } from "firebase/firestore";
 import firebaseConfig from '../firebase.js';
 
-import {SNSViwer, SNSViewerOne,FlexOnlyDiv, SNSViewerOneUserContent, NickName, Account, ContentText, UserPic,  } from "./SNSViewerZip.js"; 
+import {SNSViewerOne,FlexOnlyDiv, SNSViewerOneUserContent, NickName, Account, ContentText, UserPic } from "./SNSViewerZip.js"; 
 import './SNSViewer.css'
-import SNSGNB from "./SNSGNB.js"
 
 function SNSViewer(){
 const app = initializeApp(firebaseConfig);
@@ -37,15 +36,11 @@ function goNav(gourl){
 
 function viwePrint(){
   return(
-  <SNSViwer>
-    <SNSGNB></SNSGNB>
-    <div>
-    {SearchAccount.map((row,key)=>{
+  <div>{SearchAccount.map((row,key)=>{
     return(
       <SNSViewerOne key={key}> 
         <FlexOnlyDiv>
-          <UserPic url={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row.userpic}`}>
-          </UserPic>
+          <UserPic url={`https://jonghyunportfolio.s3.ap-northeast-2.amazonaws.com/${row.userpic}`}></UserPic>
         </FlexOnlyDiv>
         <SNSViewerOneUserContent>
           <FlexOnlyDiv>
@@ -57,8 +52,7 @@ function viwePrint(){
         </SNSViewerOneUserContent>
       </SNSViewerOne>
     )
-})}
-</div></SNSViwer>
+})}</div>
   )
 }
     useEffect(()=>{

@@ -1,5 +1,14 @@
 import styledComponents from 'styled-components';
 
+const SNSViwer = styledComponents.div`
+width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`;
+
 const SNSViewerOne = styledComponents.div`
     width: 40vw;
     min-width: 500px;
@@ -12,9 +21,9 @@ const SNSViewerOne = styledComponents.div`
     justify-content: center;
     margin: 10px 0;
 `;
+
 const FlexOnlyDiv = styledComponents.div`
 `;
-
 
 const NickName = styledComponents.span`
   font-size: 1.1em;
@@ -41,12 +50,15 @@ const ContentText = styledComponents.div`
   word-break: break-all;
   cursor: pointer;
 `;
+
 const UserPic = styledComponents.div`
   width: 50px;
   height: 50px;
   border-radius: 80%;
+  border: 1px solid rgb(210,210,210,0.5);
   background: url(${props=>props.url}) center center / cover;
 `;
+
 const CircleText = styledComponents.div`
   width: 5rem;
   height: 5rem;
@@ -61,7 +73,7 @@ const SNSViewerOneUserContent = styledComponents.div`
   width: 90%;
   text-align: left;
 `;
-export {SNSViewerOne, FlexOnlyDiv,SNSViewerOneUserContent, NickName, Account, ContentText, CircleText,UserPic };
+export {SNSViwer, SNSViewerOne, FlexOnlyDiv,SNSViewerOneUserContent, NickName, Account, ContentText, CircleText,UserPic };
 
 
 

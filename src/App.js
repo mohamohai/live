@@ -15,10 +15,13 @@ function App() {
           <Route path='/' element={<MainView />}></Route>
           <Route path="/MainView" element={<MainView />}></Route>
           {/* <Route path='/firelive/:key1/:key2' element={<PageView />}></Route> */}
-					<Route path="/ViewCommerce/:id" element={<ViewViewCommerce/>}></Route>
           <Route path="/SNSLogin" element={<SNSLogin/>}></Route>
           <Route path="/SNSViewer" element={<SNSViewer/>}></Route>
           
+
+
+
+					<Route path="/ViewCommerce/:id" element={<ViewViewCommerce/>}></Route>
 
 
           
