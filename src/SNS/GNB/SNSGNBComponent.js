@@ -49,7 +49,6 @@ function SNSGNBComponent(props) {
       time: data,
       img: WritePicArr,
     });
-    console.log("Document written with ID: ", docRef.id);
   }
 
   function CheckEnter(e) {
@@ -60,13 +59,10 @@ function SNSGNBComponent(props) {
     }
   }
 
-  function hasharrDel(DelData) {
-    console.log(DelData);
-    hasharr.forEach((row, key) => {
-      if (row === DelData) {
-        hasharr.splice(key, key + 1);
-      }
-    });
+  function hasharrDel(DelData, key,ab) {  //해시태그 삭제쪽
+    console.log(DelData, key,ab);
+    const Delarr= hasharr.filter((row)=>row!==DelData);
+    sethasharr(Delarr)
   }
 
   return (
@@ -105,7 +101,7 @@ function SNSGNBComponent(props) {
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
-              <Form.Label>내용{WriteContent}</Form.Label>
+              <Form.Label>내용</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={10}
@@ -123,11 +119,11 @@ function SNSGNBComponent(props) {
                 onKeyPress={(e) => CheckEnter(e)}
                 className="hashbox"
               />
-              {hasharr.map((row, ket) => {
+              {hasharr.map((row, key) => {
                 return (
-                  <Hashbox>
-                    {row}
-                    <span onClick={() => hasharrDel(row)}> x </span>
+                  <Hashbox key={key} className={`hash${row}`} onClick={()=>hasharrDel(row,key,`hash${row}`)}>
+                    #{row}
+                   
                     </Hashbox>
                 );
               })}
